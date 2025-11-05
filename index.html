@@ -1,27 +1,34 @@
+<!-- index.html - Landing Page -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Letras Rebeldes – Relatos del Antropoceno</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letras Rebeldes - Concurso</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Letras Rebeldes</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="submit.html">Participa</a>
-    </nav>
-  </header>
+    <div class="background-image"></div>
+    
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Letras Rebeldes</h1>
+                <p>Concurso de poesía y collage digital</p>
+            </div>
+            <div class="slide">
+                <h2>Relatos del Antropoceno</h2>
+                <p>Apertura: 03 de noviembre<br>Recepción de obras: hasta el 22 de noviembre<br>Resultados: 06 de diciembre<br>Premiación: 17 al 20 de diciembre</p>
+            </div>
+            <div class="slide">
+                <h2>Participa Aquí</h2>
+                <a href="submit.html" class="participate-btn">Enviar mi obra</a>
+            </div>
+        </div>
+        <button class="nav-btn left" id="prevBtn">&#9664;</button>
+        <button class="nav-btn right" id="nextBtn">&#9654;</button>
+    </div>
 
-  <section id="hero">
-    <h2>1er Concurso de Poesía y Collage Digital</h2>
-    <p>Relatos del Antropoceno – Arte que resiste, palabra que denuncia.</p>
-    <a href="submit.html" class="btn">Sube tu obra</a>
-  </section>
-
-  <footer>
-    <p>Centro Cultural Coipo – 2025</p>
-  </footer>
+    <script src="js/slider.js"></script>
 </body>
 </html>
