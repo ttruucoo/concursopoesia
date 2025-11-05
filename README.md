@@ -2,12 +2,12 @@
 repositorio sitio web concurso de poesia
 
 /sitio-letras-rebeldes
-│── index.html             → Landing Page
-│── submit.html            → Página para subir obras
+│── index.html               → Landing page con fondo + texto dinámico
+│── submit.html              → Formulario para enviar obras
+│── bases.html               → Bases y patrocinadores
 │── /css
-│   └── styles.css         → Estilos generales
+│   └── styles.css           → Estilos
 │── /js
-│   └── script.js          → Funciones generales (como validación de formularios)
-│── /assets
-│   ├── img                → Imágenes / logotipos
-│   └── fonts              → Tipografías si quieres personalizarlas
+│   └── slider.js            → Controla el texto deslizable
+│── /assets/img              → Aquí irá tu imagen de fondo
+
