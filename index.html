@@ -1,34 +1,147 @@
-<!-- index.html - Landing Page -->
+<!-- index.html - Landing Page completa -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letras Rebeldes - Concurso</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Fondo */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        .background-image {
+            background-image: url('assets/img/tipul.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Slider */
+        .slider-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .btn-participa {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .btn-participa:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Flechas */
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .nav:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .prev { left: -50px; }
+        .next { right: -50px; }
+    </style>
 </head>
 <body>
     <div class="background-image"></div>
-    
+
     <div class="slider-container">
         <div class="slider" id="slider">
             <div class="slide">
                 <h1>Letras Rebeldes</h1>
-                <p>Concurso de poesía y collage digital</p>
+                <p>1er Concurso de Poesía y Collage Digital</p>
             </div>
             <div class="slide">
                 <h2>Relatos del Antropoceno</h2>
-                <p>Apertura: 03 de noviembre<br>Recepción de obras: hasta el 22 de noviembre<br>Resultados: 06 de diciembre<br>Premiación: 17 al 20 de diciembre</p>
+                <p>• Apertura: 3 de noviembre<br>
+                   • Cierre de envíos: 22 de noviembre<br>
+                   • Resultados: 6 de diciembre<br>
+                   • Premiación: 17 al 20 de diciembre<br>
+                   Premios en dinero + libros + publicación</p>
             </div>
             <div class="slide">
-                <h2>Participa Aquí</h2>
-                <a href="submit.html" class="participate-btn">Enviar mi obra</a>
+                <a href="submit.html" class="btn-participa">Participa Aquí</a>
             </div>
         </div>
-        <button class="nav-btn left" id="prevBtn">&#9664;</button>
-        <button class="nav-btn right" id="nextBtn">&#9654;</button>
+        <button class="nav prev" id="prev">&#10094;</button>
+        <button class="nav next" id="next">&#10095;</button>
     </div>
 
-    <script src="js/slider.js"></script>
+    <script>
+        const slider = document.getElementById('slider');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let index = 0;
+
+        function showSlide(i) {
+            slider.style.transform = 'translateX(' + (-i * 100) + '%)';
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            showSlide(index);
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            showSlide(index);
+        }
+
+        next.addEventListener('click', nextSlide);
+        prev.addEventListener('click', prevSlide);
+
+        // Desplazamiento automático
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
